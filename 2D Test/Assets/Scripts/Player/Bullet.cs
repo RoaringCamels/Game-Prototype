@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     public void Awake()
     {
         bullet_rb = GetComponent<Rigidbody2D>();
+
     }
 
     public void Start()
@@ -26,6 +27,11 @@ public class Bullet : MonoBehaviour
     }
 
     void DestroyBullet()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
     }
