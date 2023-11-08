@@ -17,4 +17,9 @@ public class CameraFollow : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, targetPos, smoothing);
         }
     }
+
+    public void UpdateCameraBounds(float newLeft, float newRight, float newTop, float newBottom)
+    {
+        cameraBounds.UpdateBounds(newLeft, newRight, newTop, newBottom);
+    }
 }

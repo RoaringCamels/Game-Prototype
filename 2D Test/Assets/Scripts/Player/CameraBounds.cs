@@ -7,4 +7,13 @@ public class CameraBounds
     public float right;
     public float top;
     public float bottom;
+
+
+    public void UpdateBounds(float newLeft, float newRight, float newTop, float newBottom)
+    {
+        left = newLeft;
+        right = newRight;
+        top = newTop;
+        bottom = newBottom;
+    }
 }
