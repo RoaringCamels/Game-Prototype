@@ -16,9 +16,9 @@ public class Pivot : MonoBehaviour
 
     void RotateGunTowardsMouse()
     {
-        if (Camera.main != null)
+        if (UnityEngine.Camera.main != null)
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePosition = UnityEngine.Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 direction = mousePosition - (Vector2)gun_holder.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);

@@ -3,7 +3,8 @@ using UnityEngine;
 [System.Serializable]
 public class CameraBounds
 {
-    public Vector2 maxPosition;
-    public Vector2 minPosition;
-
+    public float left;
+    public float right;
+    public float top;
+    public float bottom;
 }
