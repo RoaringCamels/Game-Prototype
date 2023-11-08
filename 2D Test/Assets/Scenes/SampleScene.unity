@@ -474,7 +474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun_holder: {fileID: 469268371}
   fire_point: {fileID: 1946805001}
-  bullet: {fileID: 0}
+  bullet: {fileID: 6640021675737694085, guid: b323e75ea73c14b498ea441ed5aa526f, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 677856460}
-  smoothing: 5
+  smoothing: 2
   cameraBounds:
     left: -3
     right: 3
