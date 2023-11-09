@@ -8,10 +8,16 @@ public class Pivot : MonoBehaviour
     public Transform fire_point;
     public GameObject bullet;
 
+    public float shootCooldown;
+    public AudioSource audioSource;
+    public AudioClip shootingAudioClip;
     private void Update()
     {
         RotateGunTowardsMouse();
-        PlayerInput();
+        if (Input.GetMouseButtonDown(0))
+        {
+            PlayerShoot();
+        }
     }
 
     void RotateGunTowardsMouse()
@@ -29,11 +35,9 @@ public class Pivot : MonoBehaviour
         }
     }
 
-    void PlayerInput()
+    void PlayerShoot()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Instantiate(bullet, fire_point.position, transform.rotation);
-        }
+        audioSource.PlayOneShot(shootingAudioClip);
+        Instantiate(bullet, fire_point.position, transform.rotation);
     }
 }
