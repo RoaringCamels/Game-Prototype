@@ -7,11 +7,22 @@ public class Pivot : MonoBehaviour
     public Transform gun_holder;
     public Transform fire_point;
     public GameObject bullet;
+    public AudioSource audioSource;
+    public AudioClip shootingAudioClip;
+
+    private float nextShootTime = 0.0f; // Time when the next shot is allowed
+    public float shootCooldown = 0.5f;
 
     private void Update()
     {
         RotateGunTowardsMouse();
-        PlayerInput();
+
+        // Check if the left mouse button is held down and the cooldown time has passed.
+        if (Input.GetMouseButton(0) && Time.time >= nextShootTime)
+        {
+            PlayerShoot();
+            nextShootTime = Time.time + shootCooldown;
+        }
     }
 
     void RotateGunTowardsMouse()
@@ -29,11 +40,9 @@ public class Pivot : MonoBehaviour
         }
     }
 
-    void PlayerInput()
+    void PlayerShoot()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Instantiate(bullet, fire_point.position, transform.rotation);
-        }
+        audioSource.PlayOneShot(shootingAudioClip);
+        Instantiate(bullet, fire_point.position, transform.rotation);
     }
 }
