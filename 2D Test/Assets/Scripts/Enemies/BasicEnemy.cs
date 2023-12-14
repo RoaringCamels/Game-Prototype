@@ -5,12 +5,19 @@ public class BasicEnemy : MonoBehaviour
     public Animator enemyAnimator; // Reference to the Animator component.
 
     private bool isDead = false;
+    public int hitPoints = 3;
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!isDead && collision.gameObject.CompareTag("Bullet"))
         {
-            // Trigger the "IsDead" animation.
+            // Count the hits
+            hitPoints--;
+
+            // Check the hitCount
+            if (hitPoints <= 0){
+                // Trigger the "IsDead" animation.
             enemyAnimator.SetTrigger("IsDead");
 
             // Set the "isDead" flag to true to prevent further collisions.
@@ -22,6 +29,7 @@ public class BasicEnemy : MonoBehaviour
             // Calculate the length of the "IsDead" animation and destroy the object after that duration.
             float animationLength = enemyAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
             Destroy(gameObject, animationLength);
+            }
         }
     }
 }
