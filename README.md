@@ -1,2 +1,2 @@
 # Game Prototype
- Develpment of 2D top-dowon game
+ Develpment of 2D top-down game
